@@ -1,0 +1,30 @@
+<!-- <button (click)="login()" *ngIf ="!isUserLoggedIn">Login</button>
+<button (click)="logOut()" *ngIf ="isUserLoggedIn" >LogOut</button>
+<router-outlet></router-outlet> -->
+<mat-toolbar *ngIf="isUserLoggedIn" color="primary">
+  <div class="toolbar-spacer"></div>
+
+  <!-- <button mat-raised-button *ngIf="!isUserLoggedIn" (click)="login()">
+    Login
+  </button> -->
+  <button mat-raised-button *ngIf="isUserLoggedIn" (click)="logout()">
+    LogOut
+  </button>
+</mat-toolbar>
+
+<mat-card class="LoginCard" *ngIf="!isUserLoggedIn">
+  <mat-card-content class="signin-text">Sign in to continue</mat-card-content>
+  <mat-card-actions class="bg-orange">
+    <button mat-button class="login-google" *ngIf="!isUserLoggedIn" (click)="login()">
+      Login with Google
+    </button>
+  </mat-card-actions>
+</mat-card>
+
+<div class="container">
+  <div class="loader">
+    <mat-spinner *ngIf="loader"></mat-spinner>
+  </div>
+  <router-outlet *ngIf="!isIframe"></router-outlet>
+</div>
+

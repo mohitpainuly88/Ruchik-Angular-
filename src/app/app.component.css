@@ -1,0 +1,41 @@
+.toolbar-spacer {
+    flex: 1 1 auto;
+  }
+
+  a.title {
+    color: white;
+  }
+
+  .loader {
+    display: flex;
+    justify-content: center;
+  }
+  .LoginCard {
+    width: 400px;
+    max-width: 400px;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px 30px 50px 30px;
+    box-shadow: 0 0 5px 1px #d2d2d2;
+    border-radius: 10px;
+}
+.signin-text {
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 38px;
+  color: #2C2C2C;
+}
+.login-google {
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 30px;
+  color: #FFFFFF;
+  padding-bottom: 10px;
+}
+.bg-orange {
+  background: #FF5D17 !important;
+  border-radius: 6px;
+}
