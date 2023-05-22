@@ -114,3 +114,23 @@
 .zoom-buttons button {
   margin: 5px;
 }
+.zooming-icons {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  background: #fff;
+  box-shadow: 0 0 2px 1px #d9d9d9;
+  padding: 0px 5px;
+  margin: 0 5px;
+  border-radius: 5px;
+}
+.mat-icon-button {
+  padding: 0;
+  min-width: 0;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  line-height: 40px;
+  border-radius: 50%;
+  margin-top: 100px !important;
+}

@@ -5,17 +5,18 @@
         <div class="h-100">
           <h1>Documents Uploaded</h1>
           <div class="first-column p-3 docsheight ">
-            <div class="image-container">
-              <img [src]="images[currentIndex]" [style.transform]="'scale(' + zoom + ')'">
-              <div class="zoom-buttons">
+            <!-- <div class="image-container"> -->
+              <!-- <img [src]="images[currentIndex]" [style.transform]="'scale(' + zoom + ')'"> -->
+              <!-- <div class="zoom-buttons">
                 <button (click)="zoomIn()">Zoom In</button>
                 <button (click)="zoomOut()">Zoom Out</button>
-              </div>
-            </div>
-            <!-- <div class="d-flex justify-content-center">
+              </div> -->
+            <!-- </div> -->
+            <div class="d-flex justify-content-center">
               <img id="map" class="imageAlignment" [src]="images[currentIndex]" alt="document" />
-            </div> -->
-            <div class="d-flex justify-content-center imageAlignment">
+            </div>
+
+            <div class="d-flex justify-content-center ">
               <button mat-icon-button (click)="prevImage()">
                 <mat-icon>keyboard_arrow_left</mat-icon>
               </button>
@@ -23,9 +24,10 @@
                 <mat-icon>keyboard_arrow_right</mat-icon>
               </button>
             </div>
-
-
-
+            <div class="my-5">
+              <img class="zooming-icons" [src]="zoomOutImage" alt="zoomOut" />
+              <img class="zooming-icons" [src]="zoomInImage" alt="zoomIn" />
+            </div>
           </div>
         </div>
         <div>
@@ -97,18 +99,38 @@
                 <div class="dropdwon mb-3">
                   <div>
                     <span>Type of Document</span>
-                    <mat-form-field>
+                    <!-- <mat-form-field>
                       <mat-select [(ngModel)]="selectedOptions" multiple placeholder="select some options">
                         <mat-option *ngFor="let option of options" [value]="option">{{ option }}</mat-option>
                       </mat-select>
+                      <mat-chip-list>
+                        <mat-chip *ngFor="let option of selectedOptions" [removable]="true"
+                          (removed)="removeOption(option)">
+                          {{ option }}
+                          <mat-icon matChipRemove>cancel</mat-icon>
+                        </mat-chip>
+                      </mat-chip-list>
+                    </mat-form-field> -->
+
+                    <mat-form-field >
+                      <mat-label>Select Category:</mat-label>
+                      <mat-select [formControl]="categoriesControl" multiple>
+                      
+                        <mat-select-trigger>
+                          <mat-chip-list>
+                            <mat-chip *ngFor="let category of categoriesControl.value"
+                              [removable]="true" (removed)="onCatRemoved(category)" color="primary" selected>
+                              {{ category }}
+                              <mat-icon matChipRemove>cancel</mat-icon>
+                            </mat-chip>
+                          </mat-chip-list>
+                        </mat-select-trigger>
+                      
+                        <mat-option *ngFor="let category of categories" [value]="category">
+                          {{ category }}
+                        </mat-option>
+                      </mat-select>
                     </mat-form-field>
-                    <mat-chip-list>
-                      <mat-chip *ngFor="let option of selectedOptions" [removable]="true"
-                        (removed)="removeOption(option)">
-                        {{ option }}
-                        <mat-icon matChipRemove>cancel</mat-icon>
-                      </mat-chip>
-                    </mat-chip-list>
                   </div>
                 </div>
               </div>
